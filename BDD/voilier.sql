@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 22 Mai 2015 à 15:02
+-- Généré le :  Mer 03 Juin 2015 à 15:55
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -33,23 +33,19 @@ CREATE TABLE IF NOT EXISTS `voilier` (
   `longitude` varchar(64) NOT NULL,
   `latitude` varchar(64) NOT NULL,
   `vitesse` varchar(64) NOT NULL,
-  `force_vent` varchar(64) NOT NULL,
+  `cap` varchar(64) NOT NULL,
   `direction_vent` varchar(10) NOT NULL,
   PRIMARY KEY (`num_info`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=148 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `voilier`
 --
 
-INSERT INTO `voilier` (`num_info`, `id`, `dateinfo`, `longitude`, `latitude`, `vitesse`, `force_vent`, `direction_vent`) VALUES
-(134, 1, '2015-05-22 09:40:18', '-4.606983', '48.427890', '3', '10', 'SE'),
-(135, 2, '2015-05-22 09:40:21', '-4.6069842', '48.427882', '3', '10', 'SE'),
-(143, 1, '2015-05-22 09:41:00', '-4.607080', '48.427908', '3', '10', 'SE'),
-(144, 2, '2015-05-22 09:41:00', '-4.607066', '48.427901', '2.5', '10', 'SE'),
-(145, 1, '2015-05-22 09:42:00', '-4.607119', '48.427902', '3', '10', 'SE'),
-(146, 1, '2015-05-22 09:42:00', '-4.607119', '48.427902', '3', '10', 'SE'),
-(147, 2, '2015-05-22 10:00:00', '-4.607105', '48.427902', '3.5', '10', 'SE');
+INSERT INTO `voilier` (`num_info`, `id`, `dateinfo`, `longitude`, `latitude`, `vitesse`, `cap`, `direction_vent`) VALUES
+(3, 1, '0000-00-00 00:00:00', '-4.607037305831909', '48.42796894228204', '5', '120', 'SE'),
+(6, 2, '2015-06-03 00:00:00', '-4.607198238372803', '48.42767171321744', '3', '130', 'SE'),
+(7, 2, '2015-06-03 00:00:00', '-4.607198238372803', '48.42767171321744', '3', '130', 'SE');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
