@@ -30,7 +30,7 @@ Et pour le serveur de test :
 Utilisation de Node JS :
 
 Rappel commande sur Windows 8.1 :
-cdCette commande permet de se déplacer dans l’arborescence des fichiersdirCette commande permet de voir ce qu’il y a dans le fichier où l’on se situe
+cdCette commande permet de se déplacer dans l’arborescence des fichiersdirCette commande permet de voir ce qu’il y a dans le fichier où l’on se situecopyCopie un ou plusieurs fichiers
 	Pour utiliser Node JS il faut tout d’abord ouvrir un invité de commande. Lorsque l’invité de commande est ouvert il  suffit de vous diriger vers le fichier où se trouve le client ou le serveur avec la commande « cd ».  Lorsque vous êtes dans les dossiers « client » ou « serveur » utiliser une des deux commandes « node client.js » ou « node server.js » afin d’utiliser le client ou bien pour mettre en route le serveur.
 	S’il y a un message d’erreur, réinstaller la bibliothèque socket.io avec l’aide de la commande « npm install socket.io », ainsi que la bibliothèque socket.io-client avec la commande « npm install socket.io-install ».
 
