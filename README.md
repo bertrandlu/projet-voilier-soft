@@ -3,7 +3,9 @@
 Readme :
 
 Ce dossier comporte les différents fichiers développés pour notre projet.
-Prérequis : Wamp, Node JS
+Prérequis : 
+	Wamp : http://www.wampserver.com/
+	Node JS : https://nodejs.org/
 Explication des dossiers :
 * Dossier APP : Comporte tous les fichiers ainsi que les informations permettant d’utiliser l’application de visualisation. Ce fichier est un site web et doit être déployé dans le dossier « www » de votre serveur.
 * Dossier Client : Comporte tous les fichiers qui permettent de communiquer avec les serveurs situés sur les voiliers. Il est composé du fichier « client.js » qui permet de récupérer les informations envoyées par le serveur du port 8082 qui sont celles relatives aux positions GPS du voilier ainsi que sa vitesse, le cap du voilier ainsi que la direction du vent. Sur le port 8083, il envoie les balises entrées par l’utilisateur vers les voiliers.
