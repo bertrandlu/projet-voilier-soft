@@ -25,9 +25,9 @@ Explication des dossiers :
 
 3) Mise en place du serveur de test – client :
 
-Mettre l’application « serveur.js », faisant office de serveur de test sur une autre machine, dans le fichier « client.js ». Modifier l’adresse IP du serveur en fonction de la machine où se situe le serveur de test. Pour faire fonctionner le client, utiliser la commande :
+      Mettre le répertoire « serveur», faisant office de serveur de test sur une autre machine, dans le répertoire « client ». Modifier dans fichier « client.js »  l’adresse IP du serveur en fonction de la machine où se situe le serveur de test, ainsi que les informations liées à la connexion à votre base de données. Pour faire fonctionner le client, aller dans le répertoire client avec votre invité de commande et utiliser la commande :
 	Node client.js
-Et pour le serveur de test :
+Et pour le serveur de test aller dans le répertoire serveur et utiliser la commande:
 	Node server.js
 Utilisation de Node JS :
 
