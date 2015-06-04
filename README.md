@@ -7,7 +7,7 @@ Prérequis : Wamp, Node JS
 Explication des dossiers :
 * Dossier APP : Comporte tous les fichiers ainsi que les informations permettant d’utiliser l’application de visualisation. Ce fichier est un site web et doit être déployé dans le dossier « www » de votre serveur.
 * Dossier Client : Comporte tous les fichiers qui permettent de communiquer avec les serveurs situés sur les voiliers. Il est composé du fichier « client.js » qui permet de récupérer les informations envoyées par le serveur du port 8082 qui sont celles relatives aux positions GPS du voilier ainsi que sa vitesse, le cap du voilier ainsi que la direction du vent. Sur le port 8083, il envoie les balises entrées par l’utilisateur vers les voiliers.
-* Dossier Serveur : Comporte des fichiers tels que les serveurs utilisés sur les voiliers. Le serveur du port 8082 envoie les informations du voilier vers le client lorsque celui-ci le demande, ainsi que sur le port 8083 afin de récupérer les positions des balises.
+* Dossier Serveur : Comporte des fichiers tels que le serveur utilisés pour faire les tests de communication avec l’application de visualisation des données. Le serveur du port 8082 envoie les informations du voilier vers le client lorsque celui-ci le demande, ainsi que sur le port 8083 afin de récupérer les positions des balises.
 * Dossier BDD :   Comporte les tables devant être importées dans votre base de données afin de pouvoir utiliser l’application.
 1) Insertion des tables dans la base de données :
 
@@ -19,8 +19,6 @@ Explication des dossiers :
 1. Mettre le dossier « App » dans le fichier « www » de l’application Wamp.
 2. Pour établir la connexion entre l’interface de visualisation et la base de données, il vous suffit de modifier dans le fichier « voilierDAO.class » ainsi que dans le fichier « baliseDAO.class » la connexion à la base de données dans le constructeur. Changer le nom de la base de données en fonction de celui que vous avez choisis ainsi que l’identifiant de connexion et le mot de passe.
 3. Tester avec votre navigateur en allant à l’adresse : « localhost/app »
-
-
 
 
 3) Mise en place du serveur de test – client :
