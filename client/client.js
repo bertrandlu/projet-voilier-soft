@@ -3,17 +3,16 @@
 /*	Description: Réception des données sur         */ 
 /*					l'ordinateur de supervision    */
 /*	Auteur: Bertrand Lu & Lucas Hélaine-Ménard     */
-/*                                                 */
-/*                                                 */
 /****************************************************/
 
 //Initialisation des variables
 var io = require('socket.io-client');
 var net = require('net');
-var socket_balise = io.connect('http://192.168.1.66:8083');
-var HOST = '192.168.1.66';
 var mysql = require("mysql");
-var db = mysql.createConnection({
+
+var socket_balise = io.connect('http://192.168.1.66:8083'); //Adresse IP du serveur ainsi que le numéro de port
+var HOST = '192.168.1.66'; //Adresse IP du serveur
+var db = mysql.createConnection({ //Information de connection à la base de données
     host: 'localhost',
     user: 'root',
     password: '',
@@ -21,9 +20,9 @@ var db = mysql.createConnection({
 });
 
 
-db.connect();
-send_Balise();
-var test = setInterval(function(){
+db.connect(); //Connection à la base de données
+send_Balise(); //Appel de la fonction pour envoyer les balises
+var test = setInterval(function(){ //Fonction onRequest_info utiliser toute les 5 secondes
 	onRequest_info();
  }, 5000);
 
@@ -31,7 +30,6 @@ var test = setInterval(function(){
 function onRequest_info() {
 	var client_info = net.connect({port: 8082, host: HOST});
 	client_info.on('data' , function(data){
-		console.log('Reception de la trame JSON' + data);
 		//Recuperation + parsage des data du serveur
 		var info = data.toString("utf-8");
 		var json = JSON.stringify(eval("(" + info + ")"));
@@ -57,9 +55,9 @@ function onRequest_info() {
 		//Connection à la BDD: Insertion dans la BDD 
 		db.query('INSERT INTO voilier (id, dateinfo, longitude, latitude, vitesse, force_vent, direction_vent) VALUES (?,?,?,?,?,?,?)',[id,dformat,info_objet.Longitude, info_objet.Latitude,  info_objet.Vitesse  , info_objet.Direction, 'SE'], function(err, rows, fields) {
 				if (!err){
-			 	   console.log('Insertion dans la base de donnees' + err);
+			 	   console.log('Insertion dans la base de donnees' + err); //Succés insertion dans la base de données
 				} else{
-			 	   console.log('Error while performing Query. Fonction Voilier');
+			 	   console.log('Error while performing Query. Fonction Voilier'); //Echec d'insertion dans la base de données
 				}
 	   	});
 	});
@@ -67,16 +65,15 @@ function onRequest_info() {
 
 //Fonction d'envoie des données vers la BeagleBone
 function send_Balise() {
-  console.log('Envoi balise');
-  	db.query('SELECT * FROM balise', function(err, rows, fields) {
+  	db.query('SELECT * FROM balise', function(err, rows, fields) { // Récupération de toutes les balises
 		if (!err){
 			for (var i = 0; i < rows.length; i++) {
-				var trame_JSON = '{"Longitude:"'+ rows[i].Longitude + ',"Latitude:"' +  rows[i].Latitude +',"Index:"' + rows[i].id + ',"Add:"' + true +'}';
-				console.log('trame JSON balise:' + trame_JSON);
-			    socket_balise.emit('data', trame_JSON);
+				var trame_JSON = '{"Longitude:"'+ rows[i].Longitude + ',"Latitude:"' +  rows[i].Latitude +',"Index:"' + rows[i].id + ',"Add:"' + true +'}'; //Création de la trame JSON
+				console.log('trame JSON balise:' + trame_JSON); //Affichage de la trame JSON envoyée: informations des balises
+			    socket_balise.emit('data', trame_JSON); //Envoie la trame JSON
 			}
 		}else{
-		    console.log('Error while performing Query. Fonction Balise');
+		    console.log('Error while performing Query. Fonction Balise'); //Message d'erreur
 		}
 	});	
 }
